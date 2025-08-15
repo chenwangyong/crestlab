@@ -12,5 +12,13 @@ function getPlugins() {
 }
 
 export default defineConfig({
+  base: process.env.NODE_ENV === 'production'
+    ? '/crestlab/' 
+    : '/', 
   plugins: getPlugins(),
+  build: {
+    outDir: 'dist', 
+    assetsDir: 'assets', 
+    sourcemap: true 
+  }
 });
